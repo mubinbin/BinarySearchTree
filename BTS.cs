@@ -142,5 +142,21 @@ namespace binarySearchTree
             }
         }
 
+        public bool IsFull(BNode node)
+        {
+            if(node == null) return false; 
+
+            if(node.left == null && node.right == null){
+                return true;
+            }else if(node.left != null && node.right != null){
+                if(IsFull(node.left) != IsFull(node.right)) 
+                    return false;
+            }else{
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
