@@ -89,6 +89,25 @@ namespace binarySearchTree
             }
             return false;
         }
+
+        // given a number(data) return the node
+        public BNode Find(int num)
+        {
+            BNode res = root;
+            while(res != null)
+            {
+                if(res.value == num)
+                {
+                    return res;
+                }else if(num < res.value)
+                {
+                    res = res.left;
+                }else{
+                    res = res.right;
+                }
+            }
+                return null;
+        }
         public int BSTsize(BNode node) 
         {
             if(node == null) 
@@ -158,5 +177,55 @@ namespace binarySearchTree
             return true;
         }
 
+        // public void Remove(int num)
+        // {
+        //     BNode NodeToRemove = Find(num);
+        //     if(NodeToRemove == null)
+        //     {
+        //         Console.WriteLine("there is no such a node to remove");
+        //     }else if(NodeToRemove.left == null && NodeToRemove.right == null)
+        //     {
+        //         // no child
+        //         Console.WriteLine("function leads to here no child");
+        //         NodeToRemove = null;
+        //     }else if(NodeToRemove.left != null && NodeToRemove.right == null)
+        //     {
+        //         // one child left
+        //         Console.WriteLine("function leads to here one child left side");
+        //         NodeToRemove = NodeToRemove.left;
+    
+        //     }else if(NodeToRemove.left == null && NodeToRemove.right != null)
+        //     {
+        //         // one child right
+        //         Console.WriteLine("function leads to here one child right side");
+        //         NodeToRemove = NodeToRemove.right;
+            
+        //     }else
+        //     {
+        //         // two children (need to find iop of Node(num))
+        //         Console.WriteLine("function leads to here two children");
+        //         BNode ReplaceNode = iop(NodeToRemove.left);
+        //         BNode temp = NodeToRemove;
+        //         NodeToRemove = ReplaceNode;
+        //         ReplaceNode = null;
+
+        //     }
+        // }
+
+        public BNode iop(BNode node)
+        {
+            if(node == null) return null;
+            BNode left = iop(node.left);
+            BNode ans =  node;
+            BNode right = iop(node.right);
+            if(right !=null)
+            {
+                return right;
+            }else{
+                return ans;
+            }
+        } 
+
     }
 }
+

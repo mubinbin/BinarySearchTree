@@ -23,9 +23,13 @@ namespace binarySearchTree
             tree.AddNode(new BNode(126));
             tree.AddNode(new BNode(123));
             
-            // tree.AddNode(new BNode(24));
-            // tree.AddNode(new BNode(23));
-            // tree.AddNode(new BNode(122));
+            tree.AddNode(new BNode(24));
+            tree.AddNode(new BNode(23));
+            tree.AddNode(new BNode(21));
+            tree.AddNode(new BNode(20));
+            tree.AddNode(new BNode(122));
+            tree.AddNode(new BNode(127));
+            tree.AddNode(new BNode(128));
 
             // Console.WriteLine($"root is {tree.root.value}");
             // Console.WriteLine($"root.left is {tree.root.left.value}");
@@ -43,9 +47,9 @@ namespace binarySearchTree
             // Console.WriteLine(tree.Contains(90)); // true
             // Console.WriteLine(tree.BSTsize(tree.root));
             // Console.WriteLine(tree.Height(tree.root));
-            Console.WriteLine(tree.IsFull(tree.root));
+            tree.Remove(20);
+            tree.Remove(20);
+            
         }
     }
 }
-
-
