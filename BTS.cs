@@ -215,15 +215,11 @@ namespace binarySearchTree
         public BNode iop(BNode node)
         {
             if(node == null) return null;
-            BNode left = iop(node.left);
+            
             BNode ans =  node;
             BNode right = iop(node.right);
-            if(right !=null)
-            {
-                return right;
-            }else{
-                return ans;
-            }
+            
+            return right != null? right:ans; 
         } 
 
     }
