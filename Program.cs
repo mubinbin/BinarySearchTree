@@ -22,19 +22,24 @@ namespace binarySearchTree
             tree.AddNode(new BNode(125));
 
 
-            // tree.AddNode(new BNode(124));
-            // tree.AddNode(new BNode(126));
-            // tree.AddNode(new BNode(123));
+            tree.AddNode(new BNode(124));
+            tree.AddNode(new BNode(126));
+            tree.AddNode(new BNode(123));
             
-            // tree.AddNode(new BNode(23));
-            // tree.AddNode(new BNode(24));
-            // tree.AddNode(new BNode(21));
-            // tree.AddNode(new BNode(20));
-            // tree.AddNode(new BNode(122));
-            // tree.AddNode(new BNode(127));
-            // tree.AddNode(new BNode(128));
+            tree.AddNode(new BNode(23));
+            tree.AddNode(new BNode(24));
+            tree.AddNode(new BNode(21));
+            tree.AddNode(new BNode(20));
+            tree.AddNode(new BNode(122));
+            tree.AddNode(new BNode(127));
+            tree.AddNode(new BNode(128));
+            tree.AddNode(new BNode(110));
+            tree.AddNode(new BNode(103));
+            tree.AddNode(new BNode(108));
+            tree.AddNode(new BNode(109));
+            tree.AddNode(new BNode(107));
 
-            Console.WriteLine($"root is {tree.root.value}");
+            // Console.WriteLine($"root is {tree.root.value}");
             // Console.WriteLine($"root.left is {tree.root.left.value}");
             // Console.WriteLine($"root.left.right is {tree.root.left.right.value}");
             // Console.WriteLine($"root.right is {tree.root.right.value}");
@@ -50,11 +55,12 @@ namespace binarySearchTree
             // Console.WriteLine(tree.Contains(90)); // true
             Console.WriteLine(tree.BSTsize(tree.root));
             // Console.WriteLine(tree.iop(tree.root.left).value);
-            tree.Remove(100);
+            tree.remove2(115);
             Console.WriteLine(tree.BSTsize(tree.root));
-            Console.WriteLine($"root is {tree.root.value}");
+            // Console.WriteLine($"root is {tree.root.value}");
             // Console.WriteLine($"root.left is {tree.root.left.value}");
-            // Console.WriteLine(tree.Contains(50));
+            // Console.WriteLine(tree.Contains(65));
+            // Console.WriteLine($"root.left.right is {tree.root.left.right.value}");
             
         }
     }
