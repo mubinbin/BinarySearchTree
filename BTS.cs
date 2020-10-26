@@ -90,24 +90,6 @@ namespace binarySearchTree
             return false;
         }
 
-        // given a number(data) return the node
-        public BNode Find(int num)
-        {
-            BNode res = root;
-            while(res != null)
-            {
-                if(res.value == num)
-                {
-                    return res;
-                }else if(num < res.value)
-                {
-                    res = res.left;
-                }else{
-                    res = res.right;
-                }
-            }
-                return null;
-        }
         public int BSTsize(BNode node) 
         {
             if(node == null) 
@@ -177,51 +159,108 @@ namespace binarySearchTree
             return true;
         }
 
-        // public void Remove(int num)
-        // {
-        //     BNode NodeToRemove = Find(num);
-        //     if(NodeToRemove == null)
-        //     {
-        //         Console.WriteLine("there is no such a node to remove");
-        //     }else if(NodeToRemove.left == null && NodeToRemove.right == null)
-        //     {
-        //         // no child
-        //         Console.WriteLine("function leads to here no child");
-        //         NodeToRemove = null;
-        //     }else if(NodeToRemove.left != null && NodeToRemove.right == null)
-        //     {
-        //         // one child left
-        //         Console.WriteLine("function leads to here one child left side");
-        //         NodeToRemove = NodeToRemove.left;
-    
-        //     }else if(NodeToRemove.left == null && NodeToRemove.right != null)
-        //     {
-        //         // one child right
-        //         Console.WriteLine("function leads to here one child right side");
-        //         NodeToRemove = NodeToRemove.right;
-            
-        //     }else
-        //     {
-        //         // two children (need to find iop of Node(num))
-        //         Console.WriteLine("function leads to here two children");
-        //         BNode ReplaceNode = iop(NodeToRemove.left);
-        //         BNode temp = NodeToRemove;
-        //         NodeToRemove = ReplaceNode;
-        //         ReplaceNode = null;
+        public void Remove(int num)
+        {
+            if(!Contains(num))
+            {
+                Console.WriteLine("value is not in the tree");
+                return;
+            }else{
+                root = remove(root, num);
+            }
+        }
 
+        public BNode remove(BNode node, int num)
+        {
+            if(num < node.value)
+            {
+                node.left = remove(node.left, num);
+            }else if(num > node.value)
+            {
+                node.right = remove(node.right, num);
+            }else{
+                if(node.right == null)
+                {
+                    return node.left;
+                }else if(node.left == null)
+                {
+                    return node.right;
+                }else{
+                    BNode temp = iop(node.left);
+                    node.value = temp.value;
+                    node.left = remove(node.left, temp.value);
+                }
+            }
+            return node;
+        }
+        //     BNode pointer = root;
+        //     while(root != null)
+        //     {
+        //         if(root.value == num)
+        //         {
+        //             break;
+        //         }else if(num < root.value)
+        //         {
+        //             root = root.left;
+        //         }else{
+        //             root = root.right;
+        //         }
+        //     }
+            
+
+        //     Console.WriteLine(root.value);
+        //     if(root.left == null && root.right == null)
+        //     {
+        //         // no children
+        //         root = null;
+        //     }else if(pointer.left != null && pointer.right == null){
+        //         // one child left
+        //         BNode NodeDeleted = pointer;
+        //         pointer = pointer.left;
+        //         return;
+        //     }else if (pointer.left == null && pointer.right!=null){
+        //         // one child right
+        //         BNode NodeDeleted = pointer;
+        //         pointer = pointer.right;
+        //         return;
+        //     }else{
+        //         //  two children
+        //         BNode NodeDeleted = pointer;
+        //         iop(NodeDeleted);
+        //         int temp = pointer.value;
+        //         pointer.value = NodeDeleted.value;
+        //         NodeDeleted.value = temp;
+        //         NodeDeleted = null;
+        //         return;
         //     }
         // }
-
-        public BNode iop(BNode node)
+        private void Find(BNode node, int num)
         {
+            while(node != null)
+            {
+                if(node.value == num)
+                {
+                    break;
+                }else if(num < node.value)
+                {
+                    node = node.left;
+                }else{
+                    node = node.right;
+                }
+            }
+            // return;
+        }
+
+        // rightmost node of input node 
+        public BNode iop(BNode node)
+        {   
             if(node == null) return null;
-            
-            BNode ans =  node;
+
+            BNode ans = node;
             BNode right = iop(node.right);
             
-            return right != null? right:ans; 
+            return right !=null ? right:ans;
         } 
-
     }
 }
 

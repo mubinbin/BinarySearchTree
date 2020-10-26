@@ -12,26 +12,29 @@ namespace binarySearchTree
             // left height is 2
             tree.AddNode(new BNode(50));
             tree.AddNode(new BNode(25));
-            tree.AddNode(new BNode(90));
+            tree.AddNode(new BNode(70));
+            tree.AddNode(new BNode(65));
+            // tree.AddNode(new BNode(80));
+            // tree.AddNode(new BNode(78));
             // right height is 2
             tree.AddNode(new BNode(115));
             tree.AddNode(new BNode(105));
             tree.AddNode(new BNode(125));
 
 
-            tree.AddNode(new BNode(124));
-            tree.AddNode(new BNode(126));
-            tree.AddNode(new BNode(123));
+            // tree.AddNode(new BNode(124));
+            // tree.AddNode(new BNode(126));
+            // tree.AddNode(new BNode(123));
             
-            tree.AddNode(new BNode(24));
-            tree.AddNode(new BNode(23));
-            tree.AddNode(new BNode(21));
-            tree.AddNode(new BNode(20));
-            tree.AddNode(new BNode(122));
-            tree.AddNode(new BNode(127));
-            tree.AddNode(new BNode(128));
+            // tree.AddNode(new BNode(23));
+            // tree.AddNode(new BNode(24));
+            // tree.AddNode(new BNode(21));
+            // tree.AddNode(new BNode(20));
+            // tree.AddNode(new BNode(122));
+            // tree.AddNode(new BNode(127));
+            // tree.AddNode(new BNode(128));
 
-            // Console.WriteLine($"root is {tree.root.value}");
+            Console.WriteLine($"root is {tree.root.value}");
             // Console.WriteLine($"root.left is {tree.root.left.value}");
             // Console.WriteLine($"root.left.right is {tree.root.left.right.value}");
             // Console.WriteLine($"root.right is {tree.root.right.value}");
@@ -45,10 +48,13 @@ namespace binarySearchTree
             // Console.WriteLine(tree.Contains(100)); // true
             // Console.WriteLine(tree.Contains(190)); // false
             // Console.WriteLine(tree.Contains(90)); // true
-            // Console.WriteLine(tree.BSTsize(tree.root));
-            // Console.WriteLine(tree.Height(tree.root));
-            tree.Remove(20);
-            tree.Remove(20);
+            Console.WriteLine(tree.BSTsize(tree.root));
+            // Console.WriteLine(tree.iop(tree.root.left).value);
+            tree.Remove(100);
+            Console.WriteLine(tree.BSTsize(tree.root));
+            Console.WriteLine($"root is {tree.root.value}");
+            // Console.WriteLine($"root.left is {tree.root.left.value}");
+            // Console.WriteLine(tree.Contains(50));
             
         }
     }
